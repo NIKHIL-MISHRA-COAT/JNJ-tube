@@ -6,33 +6,26 @@
 
 ## 📸 Preview
 
-> Home | Upload | Premium Content
+### 🔐 Login  
+<img width="1914" height="916" alt="Login Page" src="https://github.com/user-attachments/assets/194ddb23-fcf6-4130-b7b2-c06fa36626fc" />
 
-<p float="left">
-  - login
-  <img src="Screenshot 2025-07-26 121826.png" width="32%" />
-  <img src="Screenshot 2025-07-26 121852.png" width="32%" />
-  
-  -home
-  <img src="Screenshot 2025-07-26 122645.png" width="32%" />
+### 🏠 Home  
+<img width="1895" height="919" alt="Home Page" src="https://github.com/user-attachments/assets/d4e9a6b4-0c63-4c68-a22a-128c22eb1e43" />
 
-  -upload
-  <img src="Screenshot 2025-07-26 123010.png" width="32%" />
+### ⬆️ Upload  
+<img width="1919" height="913" alt="Upload Page" src="https://github.com/user-attachments/assets/b44b1090-20b8-4851-a0dd-3c4e97e3ddff" />
 
-  -free playlist
-  <img src="<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/bce957b3-5570-4934-93b1-0e46f0963370" />
-" width="32%" />
+### 🎞️ Free Playlist  
+<img width="940" height="529" alt="Free Playlist" src="https://github.com/user-attachments/assets/bce957b3-5570-4934-93b1-0e46f0963370" />
 
-- paid playlist
-  <img src="<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/951bda90-c9d8-4253-88f9-ef6349b268a8" />
-" width="32%" />
+### 💎 Premium Playlist  
+<img width="940" height="529" alt="Paid Playlist" src="https://github.com/user-attachments/assets/951bda90-c9d8-4253-88f9-ef6349b268a8" />
 
-- payment 
-  <img src="<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/56007fb3-7738-4d7f-b07c-d5a05771c3ad" />
-" width="32%" />
- 
-</p>
+### 💳 Payment  
+<img width="940" height="529" alt="Payment Page" src="https://github.com/user-attachments/assets/56007fb3-7738-4d7f-b07c-d5a05771c3ad" />
+
 ---
+
 ## 🛠️ Tech Stack
 
 - **Frontend:** React, TailwindCSS, Video.js  
@@ -46,13 +39,13 @@
 
 ## ✨ Key Features
 
-- 🎥 Upload & stream videos of multiple formats
-- ⚙️ Auto video encoding using FFmpeg
-- 🧵 Job queues using Bull for background processing
-- 🧠 Thumbnail generation & metadata extraction
-- 💸 Razorpay payment integration for premium content
-- 📺 Video.js for responsive playback
-- 👤 User authentication & content access control
+- 🎥 Upload & stream videos of multiple formats  
+- ⚙️ Auto video encoding using FFmpeg  
+- 🧵 Job queues using Bull for background processing  
+- 🧠 Thumbnail generation & metadata extraction  
+- 💸 Razorpay payment integration for premium content  
+- 📺 Video.js for responsive playback  
+- 👤 User authentication & content access control  
 
 ---
 
