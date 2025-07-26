@@ -35,35 +35,35 @@ const Video = {
     const query = 'SELECT * FROM videos WHERE status = "completed"';
     db.query(query, callback);
   },
-  findByLessonId : (lessonId, userId, callback) => {
-    const query = `
-      SELECT 
-        videos.*, 
-        playlists.type AS playlistType, 
-        playlists.price AS playlistPrice,
-        CASE 
-          WHEN playlists.type != 'free' THEN 
-            EXISTS (
-              SELECT 1 
-              FROM payments 
-              WHERE payments.userId = ? 
-                AND payments.playlistId = playlists.id
-            )
-          ELSE 
-            NULL
-        END AS userPaidForPlaylist
-      FROM 
-        videos 
-      LEFT JOIN 
-        playlists 
-      ON 
-        videos.playlistId = playlists.id
-      WHERE 
-        videos.lessonId = ?;
-    `;
-  
-    db.query(query, [userId, lessonId], callback);
-  },
+  findByLessonId: (lessonId, userId, callback) => {
+  const query = `
+    SELECT 
+      videos.*, 
+      playlists.type AS playlistType, 
+      playlists.price AS playlistPrice,
+      CASE 
+        WHEN playlists.id IS NULL THEN TRUE
+        WHEN playlists.type = 'free' THEN TRUE
+        ELSE EXISTS (
+          SELECT 1 
+          FROM payments 
+          WHERE payments.userId = ? 
+            AND payments.playlistId = playlists.id
+        )
+      END AS userPaidForPlaylist
+    FROM 
+      videos 
+    LEFT JOIN 
+      playlists 
+    ON 
+      videos.playlistId = playlists.id
+    WHERE 
+      videos.lessonId = ?;
+  `;
+
+  db.query(query, [userId, lessonId], callback);
+},
+
   
   
   

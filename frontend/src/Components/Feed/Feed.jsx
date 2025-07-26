@@ -10,8 +10,7 @@ const Feed = () => {
     const fetchVideos = async () => {
       try {
         const response = await axios.get("http://localhost:5000/api/feedVideos");
-
-        setVideos(response.data.videos);  
+        setVideos(response.data.videos);
       } catch (error) {
         console.error("Error fetching videos:", error);
       }
@@ -21,19 +20,32 @@ const Feed = () => {
   }, []);
 
   return (
-    <div className="feed">
-      {videos.length > 0 ? (
-        videos.map((video) => (
-          <Link to={`/video/${video.lessonId}`} key={video.lessonId} className="card">
-            <img src={video.thumbnail} alt={video.name} />
-            <h2>{video.name}</h2>
-            <h3>{video.description}</h3>
-            <p>{video.status} &bull; {new Date(video.uploadDate).toLocaleDateString()}</p>
-          </Link>
-        ))
-      ) : (
-        <p>No videos available.</p>
-      )}
+    <div className="feed-container">
+      <h2 className="feed-title">Explore Videos</h2>
+      <div className="feed">
+        {videos.length > 0 ? (
+          videos.map((video) => (
+            <Link to={`/video/${video.lessonId}`} key={video.lessonId} className="video-card">
+              <div className="thumbnail-wrapper">
+                <img
+                  src={video.thumbnail || "https://via.placeholder.com/320x180"}
+                  alt={video.name}
+                  className="video-thumbnail"
+                />
+              </div>
+              <div className="video-details">
+                <h3 className="video-title">{video.name}</h3>
+                <p className="video-description">{video.description}</p>
+                <p className="video-meta">
+                  {video.status} • {new Date(video.uploadDate).toLocaleDateString()}
+                </p>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <p className="no-videos">No videos available.</p>
+        )}
+      </div>
     </div>
   );
 };

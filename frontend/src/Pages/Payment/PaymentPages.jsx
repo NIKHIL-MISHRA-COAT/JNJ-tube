@@ -6,22 +6,22 @@ const PaymentPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [amount, setAmount] = useState(0);
+  const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("jwtToken");
 
-  // Destructure state passed from previous page
   const { playlistId, playlistPrice } = location.state || {};
 
   useEffect(() => {
     if (!playlistId || !playlistPrice) {
-      navigate("/"); // Redirect to home page if necessary data is missing
+      navigate("/");
     } else {
-      setAmount(playlistPrice); // Set amount based on playlistPrice
+      setAmount(playlistPrice);
     }
   }, [playlistId, playlistPrice, navigate]);
 
   const handlePayment = async () => {
+    setLoading(true);
     try {
-      // Create order on the server
       const { data } = await axios.post(
         "http://localhost:5000/api/payment/order",
         { amount, playlistId },
@@ -33,7 +33,7 @@ const PaymentPage = () => {
       );
 
       const options = {
-        key: "rzp_test_TUXmHdlMzmFPvE", 
+        key: "rzp_test_TUXmHdlMzmFPvE",
         amount: data.order.amount,
         currency: data.order.currency,
         name: "JNJ",
@@ -63,39 +63,103 @@ const PaymentPage = () => {
             );
 
             if (verifyResponse.data.success) {
-              alert("Payment successful!");
-              navigate(-1); // Navigate back to the previous page
+              alert("✅ Payment successful!");
+              navigate(-1);
             } else {
               throw new Error(verifyResponse.data.message);
             }
           } catch (error) {
             console.error("Payment verification failed:", error);
-            alert("Payment verification failed. Redirecting to home.");
-            navigate("/"); // Redirect to home page on failure
+            alert("❌ Payment verification failed. Redirecting to home.");
+            navigate("/");
           }
         },
         theme: {
-          color: "#3399cc",
+          color: "#0a9396",
         },
       };
 
       const razorpay = new window.Razorpay(options);
       razorpay.open();
     } catch (error) {
-      console.error("Error during payment:", error);
-      alert("Payment Failed. Redirecting to home.");
-      navigate("/"); // Redirect to home page on failure
+      console.error("Payment error:", error);
+      alert("❌ Payment Failed. Redirecting to home.");
+      navigate("/");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div>
-      <h1>Payment Page</h1>
-      <p>Playlist ID: {playlistId}</p>
-      <p>Amount to Pay: ${amount}</p>
-      <button onClick={handlePayment}>Pay Now</button>
+    <div style={styles.container}>
+      <div style={styles.card}>
+        <h2 style={styles.heading}>🔐 Secure Payment</h2>
+        <p style={styles.text}><strong>Playlist ID:</strong> {playlistId}</p>
+        <p style={styles.amount}>Amount to Pay: <strong>₹{amount}</strong></p>
+        <button
+          onClick={handlePayment}
+          style={loading ? styles.disabledButton : styles.payButton}
+          disabled={loading}
+        >
+          {loading ? "Processing..." : "Pay Now"}
+        </button>
+      </div>
     </div>
   );
+};
+
+const styles = {
+  container: {
+    background: "linear-gradient(to right, #edf2f7, #cfe8f3)",
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "1rem",
+  },
+  card: {
+    backgroundColor: "#ffffff",
+    padding: "2.5rem",
+    borderRadius: "16px",
+    boxShadow: "0 12px 24px rgba(0,0,0,0.1)",
+    maxWidth: "400px",
+    width: "100%",
+    textAlign: "center",
+  },
+  heading: {
+    fontSize: "1.8rem",
+    marginBottom: "1.5rem",
+    color: "#2b2d42",
+  },
+  text: {
+    fontSize: "1rem",
+    marginBottom: "1rem",
+    color: "#4a4e69",
+  },
+  amount: {
+    fontSize: "1.2rem",
+    marginBottom: "1.5rem",
+    color: "#22223b",
+  },
+  payButton: {
+    backgroundColor: "#0a9396",
+    color: "#fff",
+    padding: "0.75rem 1.5rem",
+    borderRadius: "8px",
+    fontSize: "1rem",
+    border: "none",
+    cursor: "pointer",
+    transition: "background 0.3s",
+  },
+  disabledButton: {
+    backgroundColor: "#ccc",
+    color: "#555",
+    padding: "0.75rem 1.5rem",
+    borderRadius: "8px",
+    fontSize: "1rem",
+    border: "none",
+    cursor: "not-allowed",
+  },
 };
 
 export default PaymentPage;

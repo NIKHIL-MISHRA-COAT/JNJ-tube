@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2024 at 04:42 PM
+-- Generation Time: Feb 20, 2025 at 04:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -60,7 +60,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
-(1, 'Jaikishan Mishra', 'jai@gmail.com', '$2b$10$9JC1zH3ZdO.8PCNYIffStOVI/s.JJTYJLNk95Aykl7F5/rB/Y7VDG', '2024-11-26 12:34:09');
+(1, 'Roshan Yadav', 'roshan@gmail.com', '$2b$10$9JC1zH3ZdO.8PCNYIffStOVI/s.JJTYJLNk95Aykl7F5/rB/Y7VDG', '2024-11-26 12:34:09');
 
 -- --------------------------------------------------------
 
@@ -179,4 +179,5 @@ CREATE TABLE payments (
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-ALTER TABLE playists ADD COLUMN price DECIMAL(10,2) NOT NULL;
+ALTER TABLE playlists ADD COLUMN price DECIMAL(10, 2);
+

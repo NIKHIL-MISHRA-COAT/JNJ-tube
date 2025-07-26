@@ -29,8 +29,6 @@ const MyUploads = () => {
     fetchVideos();
   }, []);
 
-  
-
   const handleVideoSelect = (video) => {
     setSelectedVideo(video); 
   };
@@ -71,7 +69,7 @@ const MyUploads = () => {
               fluid: true,
               sources: [
                 {
-                  src: selectedVideo.video_url, 
+                  src: selectedVideo.video_url,
                   type: 'application/x-mpegURL',
                 },
               ],

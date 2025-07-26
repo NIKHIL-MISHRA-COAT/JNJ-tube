@@ -12,17 +12,17 @@ const Recommended = () => {
             <div className="side-video-list">
                 <img src={thumb1} alt="" />
                 <div className="vid-info">
-                    <h4>Nikhil se padh lo wo topper h.</h4>
+                    <h4>Node js</h4>
                     <p>Nikhil Classes</p>
-                    <p>1M Views</p>
+                    <p>266K Views</p>
                 </div>
             </div>
 
             <div className="side-video-list">
                 <img src={thumb2} alt="" />
                 <div className="vid-info">
-                    <h4>Jamaluddin se padh lo wo topper h.</h4>
-                    <p>Jamaluddin Classes</p>
+                    <h4>Tailwind</h4>
+                    <p>Tailwind</p>
                     <p>1M Views</p>
                 </div>
             </div>
@@ -30,26 +30,26 @@ const Recommended = () => {
             <div className="side-video-list">
                 <img src={thumb3} alt="" />
                 <div className="vid-info">
-                    <h4>Jaikishan se padh lo wo topper h.</h4>
+                    <h4>Api</h4>
                     <p>Jaikishan Classes</p>
-                    <p>1M Views</p>
+                    <p>1K Views</p>
                 </div>
             </div>
 
             <div className="side-video-list">
                 <img src={thumb4} alt="" />
                 <div className="vid-info">
-                    <h4>Sharjeel se padh lo wo topper h.</h4>
-                    <p>Sharjeel Classes</p>
-                    <p>1M Views</p>
+                    <h4>What is MERN?</h4>
+                    <p>Roshan Classes</p>
+                    <p>11K Views</p>
                 </div>
             </div>
 
             <div className="side-video-list">
                 <img src={thumb5} alt="" />
                 <div className="vid-info">
-                    <h4>Ketan se padh lo wo topper h.</h4>
-                    <p>Ketan Classes</p>
+                    <h4>Google Cloud</h4>
+                    <p>K&K</p>
                     <p>1M Views</p>
                 </div>
             </div>

@@ -9,34 +9,27 @@ exports.register = async (req, res) => {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
- try {
-  User.findByEmail(email, async (err, results) => {
-    if (err) {
-      console.error("Database error:", err);
-      return res.status(500).json({ message: 'Database error' });
-    }
-
-    if (results && results.length > 0) {
-      return res.status(400).json({ message: 'Email already exists' });
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newUser = { name, email, password: hashedPassword };
-    User.create(newUser, (err) => {
-      if (err) {
-        console.error("User creation error:", err);
-        return res.status(500).json({ message: 'Database error' });
+  try {
+    User.findByEmail(email, async (err, results) => {
+      if (results.length > 0) {
+        return res.status(400).json({ message: 'Email already exists' });
       }
 
-      res.status(201).json({ message: 'User registered successfully' });
-    });
-  });
-} catch (err) {
-  console.error("Unexpected error:", err);
-  res.status(500).json({ message: 'Server error' });
-}
+      const hashedPassword = await bcrypt.hash(password, 10);
 
+      const newUser = { name, email, password: hashedPassword };
+      User.create(newUser, (err) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).json({ message: 'Database error' });
+        }
+
+        res.status(201).json({ message: 'User registered successfully' });
+      });
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
 };
 
 exports.login = (req, res) => {

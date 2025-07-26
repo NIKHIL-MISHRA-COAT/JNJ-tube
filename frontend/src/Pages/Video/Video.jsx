@@ -27,7 +27,7 @@ const Video = () => {
         if (videoData.playlistType !== "free" && !videoData.userPaidForPlaylist) {
           Swal.fire({
             title: "This playlist is not free!",
-            text: `You need to pay $${videoData.playlistPrice} to access it.`,
+            text: `You need to pay ₹${videoData.playlistPrice} to access it.`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonText: "Proceed to Payment",
