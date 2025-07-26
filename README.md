@@ -3,10 +3,36 @@
 > A full-stack YouTube-like video streaming app built with scalability and premium features in mind. Supports video uploads, background processing, and monetization.
 
 ---
-![alt text](<Screenshot 2025-07-26 121826.png>)
-![alt text](<Screenshot 2025-07-26 121852.png>)
-![alt text](<Screenshot 2025-07-26 122645.png>)
-![alt text](<Screenshot 2025-07-26 123010.png>)
+
+## 📸 Preview
+
+> Home | Upload | Premium Content
+
+<p float="left">
+  - login
+  <img src="Screenshot 2025-07-26 121826.png" width="32%" />
+  <img src="Screenshot 2025-07-26 121852.png" width="32%" />
+  
+  -home
+  <img src="Screenshot 2025-07-26 122645.png" width="32%" />
+
+  -upload
+  <img src="Screenshot 2025-07-26 123010.png" width="32%" />
+
+  -free playlist
+  <img src="<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/bce957b3-5570-4934-93b1-0e46f0963370" />
+" width="32%" />
+
+- paid playlist
+  <img src="<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/951bda90-c9d8-4253-88f9-ef6349b268a8" />
+" width="32%" />
+
+- payment 
+  <img src="<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/56007fb3-7738-4d7f-b07c-d5a05771c3ad" />
+" width="32%" />
+ 
+</p>
+---
 ## 🛠️ Tech Stack
 
 - **Frontend:** React, TailwindCSS, Video.js  
